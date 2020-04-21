@@ -19,8 +19,6 @@ if (!$result) {
   exit;
 }
 
-echo "<script>console.log('Debug Objects: " . $result . "' );</script>";
-
 while ($row = pg_fetch_row($result)) {
   echo "name: $row[0]  surname: $row[1]";
   echo "<br />\n";
