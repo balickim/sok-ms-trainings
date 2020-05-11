@@ -82,8 +82,8 @@
         ],
         "parameters": [
           {
-            "in": "path",
-            "name": "trainingid",
+            "in": "query",
+            "name": "id",
             "description": "ID of training",
             "required": true
           }
@@ -155,8 +155,8 @@
         ],
         "parameters": [
           {
-            "in": "path",
-            "name": "trainingid",
+            "in": "query",
+            "name": "id",
             "description": "ID of training",
             "required": true
           }
