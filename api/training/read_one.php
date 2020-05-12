@@ -7,6 +7,7 @@ header('Content-Type: application/json');
   
 include_once '../../databaseConnection.php';
 include_once '../objects/training.php';
+include_once '../authorization.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -14,16 +15,19 @@ $db = $database->getConnection();
 $training = new training($db);
   
 $training->id = isset($_GET['id']) ? $_GET['id'] : die();
-  
-$result = $training->readOne();  
+$headers = apache_request_headers();
 
-    $trainings_arr=array();
-    $trainings_arr["training"]=array();
+if(authorize($headers['Authorization']))
+{
+    $result = $training->readOne();  
 
-    $row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
-    array_push($trainings_arr["training"], $row);
-    http_response_code(200);
-  
-    echo json_encode($trainings_arr);
+        $trainings_arr=array();
+        $trainings_arr["training"]=array();
 
+        $row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
+        array_push($trainings_arr["training"], $row);
+        http_response_code(200);
+    
+        echo json_encode($trainings_arr);
+}
 ?>
