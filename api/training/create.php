@@ -20,12 +20,10 @@ if(authorize($headers['Authorization']))
 {
     $data = json_decode(file_get_contents("php://input"));
     if(
-        !empty($data->poolid) &&
         !empty($data->startdate) &&
         !empty($data->enddate) &&
         !empty($data->description)
     ){
-        $training->poolid = $data->poolid;
         $training->startdate = date('Y-m-d H:i:s');
         $training->enddate = date('Y-m-d H:i:s');
         $training->description = $data->description;
