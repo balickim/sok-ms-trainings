@@ -39,7 +39,12 @@
           "405": {
             "description": "Invalid input"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/training/read.php": {
@@ -66,7 +71,12 @@
           "405": {
             "description": "Validation exception"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/training/read_one.php": {
@@ -101,7 +111,12 @@
           "405": {
             "description": "Validation exception"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/training/update.php": {
@@ -139,7 +154,12 @@
           "405": {
             "description": "Validation exception"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/training/delete.php": {
@@ -174,8 +194,20 @@
           "405": {
             "description": "Validation exception"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
+    }
+  },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
     }
   },
   "definitions": {
